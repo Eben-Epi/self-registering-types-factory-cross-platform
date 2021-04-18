@@ -12,7 +12,7 @@
 
 #include "CompressionMethodFactory/CompressionMethodFactory.hpp"
 
-class GZIPCompression : public ICompressionMethod
+class GZIPCompression : public ICompressionMethod, public RegisteredInFactory<GZIPCompression>
 {
 public:
     virtual void Compress() override;

@@ -10,10 +10,6 @@
 #include <CompressionMethods/BZCompression.hpp>
 #include <iostream>
 
-bool BZCompression::s_registered =
-        CompressionMethodFactory::Register(BZCompression::GetFactoryName(),
-                                           BZCompression::CreateMethod);
-
 std::unique_ptr<ICompressionMethod> BZCompression::CreateMethod() {
     return std::make_unique<BZCompression>();
 }

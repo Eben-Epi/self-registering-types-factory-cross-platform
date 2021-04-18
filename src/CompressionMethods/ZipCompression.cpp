@@ -10,10 +10,6 @@
 #include <CompressionMethods/ZipCompression.hpp>
 #include <iostream>
 
-bool ZipCompression::s_registered =
-        CompressionMethodFactory::Register(ZipCompression::GetFactoryName(),
-                                           ZipCompression::CreateMethod);
-
 std::unique_ptr<ICompressionMethod> ZipCompression::CreateMethod() {
     return std::make_unique<ZipCompression>();
 }

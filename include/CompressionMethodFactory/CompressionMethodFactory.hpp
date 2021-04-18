@@ -40,5 +40,16 @@ private:
     static std::map<std::string, TCreateMethod>& s_methods();
 };
 
+template <typename T>
+class RegisteredInFactory
+{
+protected:
+    RegisteredInFactory() { s_bRegistered; }
+    static bool s_bRegistered;
+};
+
+template <typename T>
+bool RegisteredInFactory<T>::s_bRegistered =
+        CompressionMethodFactory::Register(T::GetFactoryName(), T::CreateMethod);
 
 #endif //TEST_SELF_FACTORY_ICOMPRESSIONMETHOD_HPP

@@ -12,7 +12,7 @@
 #ifndef TEST_SELF_FACTORY_ZIPCOMPRESSION_HPP
 #define TEST_SELF_FACTORY_ZIPCOMPRESSION_HPP
 
-class BZCompression : public ICompressionMethod
+class BZCompression : public ICompressionMethod, public RegisteredInFactory<BZCompression>
 {
 public:
     virtual void Compress() override;

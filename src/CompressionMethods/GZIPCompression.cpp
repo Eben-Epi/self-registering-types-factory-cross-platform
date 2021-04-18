@@ -10,10 +10,6 @@
 #include <CompressionMethods/GZIPCompression.hpp>
 #include <iostream>
 
-bool GZIPCompression::s_registered =
-        CompressionMethodFactory::Register(GZIPCompression::GetFactoryName(),
-                                           GZIPCompression::CreateMethod);
-
 std::unique_ptr<ICompressionMethod> GZIPCompression::CreateMethod() {
     return std::make_unique<GZIPCompression>();
 }
