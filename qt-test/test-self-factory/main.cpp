@@ -1,10 +1,12 @@
+#include "mainwindow.h"
+
+#include <QApplication>
 #include <iostream>
 #include "CompressionMethodFactory/CompressionMethodFactory.hpp"
 
-int main() {
+int main(int argc, char** argv) {
     std::cout << "Hello, World!" << std::endl;
 
-//    CompressionMethodFactory::GetMap();
     auto zip = CompressionMethodFactory::Create("ZIP");
     auto bz = CompressionMethodFactory::Create("BZ");
     auto gzip = CompressionMethodFactory::Create("GZIP");
@@ -12,5 +14,8 @@ int main() {
     zip->Compress();
     bz->Compress();
     gzip->Compress();
-    return 0;
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

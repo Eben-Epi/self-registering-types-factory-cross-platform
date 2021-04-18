@@ -6,7 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 INCLUDE_DIRECTORIES(include)
 
 add_executable(test_self_factory
+        main.cpp
         src/CompressionMethodFactory/CompressionMethodFactory.cpp
         src/CompressionMethods/ZipCompression.cpp
-        src/CompressionMethods/BZCompression.cpp
-        main.cpp)
+        src/CompressionMethods/GZIPCompression.cpp
+        src/CompressionMethods/BZCompression.cpp)
