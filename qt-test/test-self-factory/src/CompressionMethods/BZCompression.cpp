@@ -9,6 +9,7 @@
 
 #include <CompressionMethods/BZCompression.hpp>
 #include <iostream>
+#include <QDebug>
 
 bool BZCompression::s_registered =
         CompressionMethodFactory::Register(BZCompression::GetFactoryName(),
@@ -23,5 +24,5 @@ std::string BZCompression::GetFactoryName() {
 }
 
 void BZCompression::Compress() {
-    std::cout << "WOW, je BZ !... hein?" << std::endl;
+    qDebug("WOW, je BZ !... hein?");
 }
