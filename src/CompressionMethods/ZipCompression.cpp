@@ -14,8 +14,8 @@ std::unique_ptr<ICompressionMethod> ZipCompression::CreateMethod() {
     return std::make_unique<ZipCompression>();
 }
 
-std::string ZipCompression::GetFactoryName() {
-    return "ZIP";
+KNOWN_COMPRESSION_TYPES ZipCompression::GetFactoryName() {
+    return ZIP;
 }
 
 void ZipCompression::Compress() {

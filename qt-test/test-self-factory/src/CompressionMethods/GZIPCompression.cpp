@@ -9,15 +9,16 @@
 
 #include <CompressionMethods/GZIPCompression.hpp>
 #include <iostream>
+#include <QDebug>
 
 std::unique_ptr<ICompressionMethod> GZIPCompression::CreateMethod() {
     return std::make_unique<GZIPCompression>();
 }
 
-std::string GZIPCompression::GetFactoryName() {
-    return "GZIP";
+KNOWN_COMPRESSION_TYPES GZIPCompression::GetFactoryName() {
+    return GZIP;
 }
 
 void GZIPCompression::Compress() {
-    std::cout << "WOW, je GZIP !... hein?" << std::endl;
+   qDebug("WOW, je GZIP !");
 }

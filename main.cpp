@@ -4,10 +4,9 @@
 int main() {
     std::cout << "Hello, World!" << std::endl;
 
-//    CompressionMethodFactory::GetMap();
-    auto zip = CompressionMethodFactory::Create("ZIP");
-    auto bz = CompressionMethodFactory::Create("BZ");
-    auto gzip = CompressionMethodFactory::Create("GZIP");
+    auto zip = CompressionMethodFactory::Create(ZIP);
+    auto bz = CompressionMethodFactory::Create(BZ);
+    auto gzip = CompressionMethodFactory::Create(GZIP);
 
     zip->Compress();
     bz->Compress();

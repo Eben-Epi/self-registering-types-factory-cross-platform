@@ -14,8 +14,8 @@ std::unique_ptr<ICompressionMethod> GZIPCompression::CreateMethod() {
     return std::make_unique<GZIPCompression>();
 }
 
-std::string GZIPCompression::GetFactoryName() {
-    return "GZIP";
+KNOWN_COMPRESSION_TYPES GZIPCompression::GetFactoryName() {
+    return GZIP;
 }
 
 void GZIPCompression::Compress() {

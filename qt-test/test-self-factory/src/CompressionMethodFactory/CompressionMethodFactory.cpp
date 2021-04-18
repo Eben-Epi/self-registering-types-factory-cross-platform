@@ -9,12 +9,12 @@
 
 #include <CompressionMethodFactory/CompressionMethodFactory.hpp>
 
-std::map<std::string, CompressionMethodFactory::TCreateMethod>& CompressionMethodFactory::s_methods() {
-    static std::map<std::string, CompressionMethodFactory::TCreateMethod> my_static_obj_;
+std::map<KNOWN_COMPRESSION_TYPES, CompressionMethodFactory::TCreateMethod>& CompressionMethodFactory::s_methods() {
+    static std::map<KNOWN_COMPRESSION_TYPES, CompressionMethodFactory::TCreateMethod> my_static_obj_;
     return my_static_obj_;
 };
 
-bool CompressionMethodFactory::Register(const std::string name,
+bool CompressionMethodFactory::Register(KNOWN_COMPRESSION_TYPES name,
                                         TCreateMethod funcCreate)
 {
     if (auto it = s_methods().find(name); it == s_methods().end())
@@ -25,7 +25,7 @@ bool CompressionMethodFactory::Register(const std::string name,
     return false;
 }
 
-std::unique_ptr<ICompressionMethod> CompressionMethodFactory::Create(const std::string& name)
+std::unique_ptr<ICompressionMethod> CompressionMethodFactory::Create(KNOWN_COMPRESSION_TYPES name)
 {
     if (auto it = s_methods().find(name); it != s_methods().end())
         return it->second(); // call the createFunc

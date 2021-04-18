@@ -14,6 +14,12 @@
 #include <memory>
 #include <string>
 
+enum KNOWN_COMPRESSION_TYPES {
+    BZ,
+    GZIP,
+    ZIP
+};
+
 class ICompressionMethod
 {
 public:
@@ -31,13 +37,12 @@ public:
 public:
     CompressionMethodFactory() = delete;
 
-    static bool Register(const std::string name, TCreateMethod funcCreate);
+    static bool Register(KNOWN_COMPRESSION_TYPES name, TCreateMethod funcCreate);
 
-    static std::unique_ptr<ICompressionMethod> Create(const std::string& name);
+    static std::unique_ptr<ICompressionMethod> Create(KNOWN_COMPRESSION_TYPES name);
 
-//    static std::map<std::string, CompressionMethodFactory::TCreateMethod>& GetMap();
 private:
-    static std::map<std::string, TCreateMethod>& s_methods();
+    static std::map<KNOWN_COMPRESSION_TYPES, TCreateMethod>& s_methods();
 };
 
 template <typename T>

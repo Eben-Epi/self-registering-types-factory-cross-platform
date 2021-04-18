@@ -1,3 +1,4 @@
 .idea/
 cmake-build-debug
 qt-test/build-*
+*CMakeLists.txt.user*

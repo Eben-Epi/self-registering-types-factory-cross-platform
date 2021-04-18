@@ -14,8 +14,8 @@ std::unique_ptr<ICompressionMethod> BZCompression::CreateMethod() {
     return std::make_unique<BZCompression>();
 }
 
-std::string BZCompression::GetFactoryName() {
-    return "BZ";
+KNOWN_COMPRESSION_TYPES BZCompression::GetFactoryName() {
+    return BZ;
 }
 
 void BZCompression::Compress() {

@@ -18,7 +18,7 @@ public:
     virtual void Compress() override;
 
     static std::unique_ptr<ICompressionMethod> CreateMethod();
-    static std::string GetFactoryName();
+    static KNOWN_COMPRESSION_TYPES GetFactoryName();
 
 private:
     static bool s_registered;
